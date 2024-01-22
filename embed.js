@@ -6,8 +6,9 @@ const duha = document.getElementById("duha")
 duha.style = "display: none";
 
 
-function startTV(s) //s = scale
+function startTV()
 { 
+	let s = scale;
 	if(s==0) 
 	{
 		tv.width = 1;
@@ -36,7 +37,7 @@ function startTV(s) //s = scale
 
 function updateTime()
 {
-	s = scale;
+	let s = scale;
 	ctx.fillStyle = "#000";
 	if(s < 1) {ctx.fillStyle = "#00000080"}; //afterglow half-life 40 ms, simulates compression artifacts
 	ctx.fillRect(s*183, s*126, s*110, s*18);
@@ -74,5 +75,5 @@ function stopUpdatingTime()
 	clearInterval(updater);
 }
 
-startTV(scale);
+startTV();
 startUpdatingTime();
