@@ -1,0 +1,36 @@
+@font-face{font-family:Monoskop;
+	src:url(Monoskop.ttf) format('truetype');
+/*	src:url(Monoskop.otf) format('opentype');
+	src:url(Monoskop.svg) format('svg'); */
+	src:url(Monoskop.ttf);
+}
+
+p {
+	font-family: Monoskop, monospace;
+	font-size: 48pt;
+}
+
+#tv {
+	margin: auto; 
+	max-height: 100vh; 
+	max-width: 100%;  
+	align-self: center;
+}
+
+#duha {
+	width: 1920px;
+	height: 1080px;
+	image-rendering: pixelated;
+}
+
+body {
+	margin: 0px; 
+	padding: 0px; 
+	border: 0px; 
+	height: 100vh;
+	background-color: #000;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
