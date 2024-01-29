@@ -110,7 +110,7 @@ var loadInterval;
 
 function updateQuality()
 {
-  stopSpinning();
+  stopSpinning(); 
   startTV();   
   startUpdatingTime();
 }

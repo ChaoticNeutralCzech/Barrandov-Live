@@ -12,30 +12,27 @@
   <img src="duha.png" id="duha"></img>
   <canvas id="tv" width="480" height="270"></canvas>
   <img src="spinner.svg" id="spinner"></img>
-  <div id="controls">
-      <div id="chmenu" class="drop">
-        <div class="dropWindow">
-          <a href="#ch2">kino</a>
-          <a href="#ch3">krimi</a>
-        </div>
-        <button id="chButton" class="dropButton">tv</button>
-
+  <div id="controls" class="controls">
+    <img src="exit.svg" id="exit" class="ficon">
+    <img src="full.svg" id="full" class="ficon">
+    <div id="qmenu" class="drop">
+      <div class="dropWindow">
+        <a href="#">HD</a>
+        <a href="#">SD</a>
+        <a href="#">LQ</a>
+        <a href="#">Auto</a>
       </div>
-      <p>Právě běží: <i>Žádné informace</i></p>
-
-      <div id="qmenu" class="drop">
-        <div class="dropWindow">
-          <a href="#">HD</a>
-          <a href="#">SD</a>
-          <a href="#">LQ</a>
-          <a href="#">Auto</a>
-        </div>
-        <button id="qButton" class="dropButton">Auto</button>
-
+      <button id="qButton" class="dropButton">Auto</button>
+      
+    </div>
+    <p><span class="graytext">Právě běží:</span> <i>Žádné informace</i></p> 
+    <div id="chmenu" class="drop">
+      <div class="dropWindow">
+        <a href="#ch2">kino</a>
+        <a href="#ch3">krimi</a>
       </div>
-      <!--<p>TV Barrandov/Barrandov Krimi/Barrandov Kino - Právě běží: <u>Žádné informace</u></p>--->
-      <img src="exit.svg" id="exit" class="ficon">
-      <img src="full.svg" id="full" class="ficon">
+      <button id="chButton" class="dropButton">tv</button>
+    </div>
   </div>
   <script src="embed.js"></script>
   </body>
