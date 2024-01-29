@@ -2,14 +2,41 @@
 <html>
 <head>
   <meta charset="UTF-8" /> 
+  <meta property="og:title" content="TV Barrandov - ŽIVĚ" />
   <meta property="og:image" content="duha.png" />
   <title>TV Barrandov - ŽIVĚ</title>
   <link rel="icon" href="favicon.png"/>
   <link rel="stylesheet" href="embed.css"/>
 </head>
 <body>
-  <img src="duha.png" id="duha" onload = "startTV()">
+  <img src="duha.png" id="duha"></img>
   <canvas id="tv" width="480" height="270"></canvas>
+  <img src="spinner.svg" id="spinner"></img>
+  <div id="controls">
+      <div id="chmenu" class="drop">
+        <div class="dropWindow">
+          <a href="#ch2">kino</a>
+          <a href="#ch3">krimi</a>
+        </div>
+        <button id="chButton" class="dropButton">tv</button>
+
+      </div>
+      <p>Právě běží: <i>Žádné informace</i></p>
+
+      <div id="qmenu" class="drop">
+        <div class="dropWindow">
+          <a href="#">HD</a>
+          <a href="#">SD</a>
+          <a href="#">LQ</a>
+          <a href="#">Auto</a>
+        </div>
+        <button id="qButton" class="dropButton">Auto</button>
+
+      </div>
+      <!--<p>TV Barrandov/Barrandov Krimi/Barrandov Kino - Právě běží: <u>Žádné informace</u></p>--->
+      <img src="exit.svg" id="exit" class="ficon">
+      <img src="full.svg" id="full" class="ficon">
+  </div>
   <script src="embed.js"></script>
   </body>
 </html> 

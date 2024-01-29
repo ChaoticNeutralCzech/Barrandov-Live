@@ -5,24 +5,22 @@
 	src:url(Monoskop.ttf);
 }
 
-p {
-	font-family: Monoskop, monospace;
+@font-face{font-family:Baloo;
+	src:url(Baloo2BoldMinified.woff);
+}
+#tv {
+	max-height: 56.25vw; 
+	height: 100%;  
+  font-family: Monoskop, monospace;
 	font-size: 48pt;
 }
-
-#tv {
-	margin: auto; 
-	max-height: 100vh; 
-	max-width: 100%;  
-	align-self: center;
-}
-
+/*
 #duha {
 	width: 1920px;
 	height: 1080px;
 	image-rendering: pixelated;
 }
-
+*/
 body {
 	margin: 0px; 
 	padding: 0px; 
@@ -33,4 +31,133 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	position: relative;
+  font-family: sans-serif;
+  font-size: 20pt;
+}
+
+#spinner {
+	max-width: 9%;
+	max-height: 16vh;
+	position: absolute;
+	margin: auto; 
+	align-self: center;
+	visibility: hidden;
+	transition: opacity 1s; 
+}
+
+#controls {
+	position: absolute;
+	bottom: 0; 
+	align-self: bottom;
+  max-height: 20vh;
+  height: 50px;
+  width: 100vw;
+  /*background-image: linear-gradient(#0000 0%, #0000 90%, #0007 93%, #000a 96%, #000c	100%);*/
+  background-image: linear-gradient(#0000 0%, /*#0000 90%, #0007 93%, #000a 96%,*/ #000c	100%);
+  opacity: 0;
+  display: none;
+  transition: opacity 0.5s;
+  display: flex;
+  align-items: center;
+/*  justify-content: flex-end;*/
+  flex-flow: row nowrap;
+}
+
+p {
+/*  position: absolute;*/
+  align-self: center;
+  color: #fff;
+}
+
+.ficon {
+	align-self: center;
+  /*position: absolute;*/
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  padding: 5px 10px;
+	transition: transform 0.5s;
+}
+
+.ficon:hover {
+	transform: scale(1.2);
+}
+
+#exit {
+  display: none;
+}
+
+.drop {
+  display: inline-block;
+  position: relative;
+}
+
+.dropButton {
+  background-color: #0000;
+  color: #fff;
+  border: none;
+  padding: 5px 20px;
+}
+#chmenu, #chButton {
+  font-family: Baloo, sans-serif;
+  font-size: 20pt;
+  width: 120px;
+  text-align: left;
+}
+#qmenu {
+  /*position: relative;*/
+  align-self: center flex-end;
+  align-items: center;
+  justify-self: flex-end;
+  margin-left: auto;
+}
+
+#qButton {
+  position: relative;
+  padding: auto 10px;
+}
+
+#qmenu a, #qButton {
+  font-family: sans-serif;
+  text-align: center;
+  font-size: 12pt;
+  width: 80px;
+}
+
+.dropButton :hover {
+  background-color: #0003;
+}
+
+.drop:hover .dropWindow {
+  display: block;
+}
+
+.dropWindow {
+	display: none;
+	position: absolute;
+  bottom: 100%;
+	background-color: #0000;
+	z-index: 1;
+}
+
+#qmenu div a {
+  width: 40px;
+}
+#chmenu div a {
+  width: 120px;
+}
+
+.dropWindow a {
+  background-color: #333d;
+  color: #fff;
+  text-align: left;
+  padding: 5px 20px;
+  display: block;
+  text-decoration: none;
+}
+
+.dropWindow a:hover {
+	background-color: #888;
 }
