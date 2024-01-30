@@ -1,7 +1,7 @@
 const tv = document.getElementById("tv");
 const duha = document.getElementById("duha");
 duha.crossOrigin = "anonymous";
-duha.src = "http://monoskop.online/duha.png";
+duha.src = "duha.png";
 const controls = document.getElementById("controls");
 const urlParams = new URLSearchParams(window.location.search);
 const fullButton = document.getElementById("full");
