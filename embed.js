@@ -44,7 +44,8 @@ function startTV()
 		ctx.drawImage(duha, 0, 0, s*480, s*270);
 	  ctx.font = s*12 + "pt Monoskop";
     ctx.fillStyle = "#000";
-    updateTime();
+    var leftTopPixel = ctx.getImageData(0, 0, 1, 1)
+    if(leftTopPixel.data[1] == 255) updateTime();
 	}
 }
 
@@ -129,17 +130,18 @@ function imagesCheck()
 {
   if(duha.complete && duha.naturalWidth > 0 && spinner.complete && document.fonts.check("12px Monoskop"))
 	{
-    if (channel > 0) {
-      if (scale == 0) scale = 0.5;
-      startTV();
-      const leftTopPixel = ctx.getImageData(0, 0, 1, 1)
-      if(leftTopPixel.data[1] == 255) 
-      {
-        clearInterval(loadInterval); 
+    if (scale == 0) scale = 0.5;
+    startTV();
+    
+    var leftTopPixel = ctx.getImageData(0, 0, 1, 1)
+    if(leftTopPixel.data[1] == 255) 
+    {
+      clearInterval(loadInterval); 
+      if (channel > 0) {
         imageLoadTime = Date.now() - bootTime;
         loadInterval = setTimeout(simulateLoading, imageLoadTime * 3 + 400);
         scale = .5;
-      }
+      } else startUpdatingTime();
     } 
     
     
@@ -201,8 +203,6 @@ if (channel > 0)
   controlsDisabled = true;
 	computeAutoScale();
   scale = autoScale;
-	startTV();
-  startUpdatingTime();
 }
 
 
