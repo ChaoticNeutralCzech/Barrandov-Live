@@ -1,5 +1,7 @@
 const tv = document.getElementById("tv");
 const duha = document.getElementById("duha");
+duha.crossOrigin = "anonymous";
+duha.src = "http://monoskop.online/duha.png";
 const controls = document.getElementById("controls");
 const urlParams = new URLSearchParams(window.location.search);
 const fullButton = document.getElementById("full");
@@ -127,12 +129,21 @@ function imagesCheck()
 {
   if(duha.complete && duha.naturalWidth > 0 && spinner.complete && document.fonts.check("12px Monoskop"))
 	{
-    clearInterval(loadInterval);
-    scale = .5;
-    startTV();
-    imageLoadTime = Date.now() - bootTime;
-    loadInterval = setTimeout(simulateLoading, imageLoadTime * 3 + 400);
-  }
+    if (channel > 0) {
+      if (scale == 0) scale = 0.5;
+      startTV();
+      const leftTopPixel = ctx.getImageData(0, 0, 1, 1)
+      if(leftTopPixel.data[1] == 255) 
+      {
+        clearInterval(loadInterval); 
+        imageLoadTime = Date.now() - bootTime;
+        loadInterval = setTimeout(simulateLoading, imageLoadTime * 3 + 400);
+        scale = .5;
+      }
+    } 
+    
+    
+  } else if (Date.now() - bootTime > 1e4) location.reload();
 }
 
 var hideControlsTimeout;
@@ -178,10 +189,10 @@ computeAutoScale();
 document.body.onmousemove = showControls;
 document.body.onresize = function(){stepQuality(computeAutoScale(), 1000, true)};
 
+loadInterval = setInterval(imagesCheck, 200);
 
 if (channel > 0) 
 { 
-	loadInterval = setInterval(imagesCheck, 200);
 	startSpinning();
 	scale = 0;
   controls.style.display = "flex";
