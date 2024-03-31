@@ -44,8 +44,11 @@ function startTV()
 		ctx.drawImage(duha, 0, 0, s*480, s*270);
 	  ctx.font = s*12 + "pt Monoskop";
     ctx.fillStyle = "#000";
-    var leftTopPixel = ctx.getImageData(0, 0, 1, 1)
-    if(leftTopPixel.data[1] == 255) updateTime();
+    try {
+      var leftTopPixel = ctx.getImageData(0, 0, 1, 1);
+      if(leftTopPixel.data[1] == 255) updateTime();
+    }
+    catch(err) {updateTime();}
 	}
 }
 
@@ -54,7 +57,7 @@ function updateTime()
 	var s = scale;
 	ctx.fillRect(s*183, s*126, s*110, s*18);
 	ctx.fillStyle = "#0f0";
-	var dayMillis = (Date.now() + 3600*1000) % (1000*3600*24); //unix millis to CET day millis
+	var dayMillis = (Date.now() + 3600*1000 + 3600*1000) % (1000*3600*24); //unix millis to CET day millis
 	var frm = ((dayMillis %   1000)-(dayMillis %     40)) / 40;
 	var sec = ((dayMillis %  60000)-(dayMillis %   1000)) / 1000;
 	var min = ((dayMillis %3600000)-(dayMillis %  60000)) / 60000;
@@ -133,8 +136,8 @@ function imagesCheck()
     if (scale == 0) scale = 0.5;
     startTV();
     
-    var leftTopPixel = ctx.getImageData(0, 0, 1, 1)
-    if(leftTopPixel.data[1] == 255) 
+    try {var leftTopPixel = ctx.getImageData(0, 0, 1, 1);} catch(err) {leftTopPixel = 1;} 
+    if(leftTopPixel.data[1] == 255 || leftTopPixel === 1) 
     {
       clearInterval(loadInterval); 
       if (channel > 0) {
